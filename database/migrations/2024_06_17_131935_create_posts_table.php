@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->dateTime('published_at')->index();
             $table->text('content')->nullable();
-            $table->string('author')->index()->nullable();
-            $table->string('category')->index()->nullable();
+            $table->foreignId('profile_id')->index()->constrained('profiles');
+            $table->foreignId('category_id')->index()->constrained('categories');
             $table->unsignedBigInteger('view')->nullable();
             $table->boolean('is_commentable')->default(true);
             $table->timestamps();
