@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Profile;
 use App\Models\Tag;
@@ -28,10 +30,8 @@ class GoCommand extends Command
      */
     public function handle()
     {
-        $profile = Profile::first();
-        $post = Post::first();
-        $tag = Tag::first();
+        $comment = Comment::find(1);
 
-        dd($profile->posts);
+        dd($comment->category);
     }
 }
