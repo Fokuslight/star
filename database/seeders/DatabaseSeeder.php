@@ -28,9 +28,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make(123123123),
         ]);
 
-        Profile::firstOrCreate([
-            'user_id' => $user->id
-        ]);
+        $user->profile()->create();
 
         $this->call([
             CategorySeeder::class,

@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Profile;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class GoCommand extends Command
@@ -30,8 +31,7 @@ class GoCommand extends Command
      */
     public function handle()
     {
-        $comment = Comment::find(1);
-
-        dd($comment->category);
+        $category = Category::find(8);
+        dd($category->comments);
     }
 }

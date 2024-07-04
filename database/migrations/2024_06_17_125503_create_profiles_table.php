@@ -22,8 +22,8 @@ return new class extends Migration
             $table->date('birthed_at')->index()->nullable();
             $table->string('login')->unique()->nullable();
 
-            $table->foreignId('user_id')->index()->constrained('users');
-
+            $table->morphs('profileable');
+//            $table->foreignId('user_id')->index()->constrained('users');
             $table->timestamps();
         });
     }

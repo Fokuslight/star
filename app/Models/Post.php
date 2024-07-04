@@ -16,11 +16,23 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class)->withTimestamps();
     }
-    
-    public function category() 
+
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
+
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::Class,'commentable');
+    }
+
+    public function likedByProfiles()
+    {
+        return $this->morphToMany(Profile::class, 'likeable', 'likeable');
+    }
+
 }

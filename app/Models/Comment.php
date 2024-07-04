@@ -9,13 +9,15 @@ class Comment extends Model
 {
     use HasFactory;
 
-    public function post()
-    {
-        return $this->belongsTo(Post::class);
-    }
 
     public function category()
     {
-        return $this->post->category();
+        return $this->commentable->category();
     }
+
+    public function commentable()
+    {
+        return $this->morphTo();
+    }
+
 }
