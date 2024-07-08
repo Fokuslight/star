@@ -31,7 +31,22 @@ class GoCommand extends Command
      */
     public function handle()
     {
-        $category = Category::find(8);
-        dd($category->comments);
+        $post = Post::first();
+        // attach - просто добавление
+        // syncWithoutDetaching
+        // detach - просто удаление
+        // sync - оставляет только то, что в методе
+        // toggle - включить/выключить
+        // updateExistingPivot - апдейт
+//    0 => 7
+//    1 => 8
+//    2 => 9
+//    3 => 12
+//    4 => 16
+        $tag = Tag::find(9);
+        $post->tags()->updateExistingPivot($tag, [
+            'status' => 2
+        ]);
+        dd($post->tags->count());
     }
 }

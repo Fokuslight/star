@@ -24,7 +24,7 @@ class PostFactory extends Factory
             'content' => fake()->text,
             'profile_id' => Profile::first()->id,
             'category_id' => Category::inRandomOrder()->first()->id,
-            'view' => random_int(100, 300),
+            'views' => random_int(100, 300),
             'is_commentable' => fake()->boolean,
         ];
     }

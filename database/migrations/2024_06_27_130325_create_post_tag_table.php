@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('post_id')->index()->constrained('posts');
             $table->foreignId('tag_id')->index()->constrained('tags');
+            $table->unsignedSmallInteger('status')->default(1);
             $table->timestamps();
         });
     }

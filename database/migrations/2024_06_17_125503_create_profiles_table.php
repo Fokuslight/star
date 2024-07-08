@@ -21,9 +21,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('status')->default(1);
             $table->date('birthed_at')->index()->nullable();
             $table->string('login')->unique()->nullable();
-
-            $table->morphs('profileable');
-//            $table->foreignId('user_id')->index()->constrained('users');
+            $table->foreignId('user_id')->index()->constrained('users');
             $table->timestamps();
         });
     }
