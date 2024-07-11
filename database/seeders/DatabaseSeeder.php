@@ -28,7 +28,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make(123123123),
         ]);
 
-        $user->profile()->create();
 
         $this->call([
             CategorySeeder::class,

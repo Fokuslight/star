@@ -18,9 +18,11 @@ return new class extends Migration
             $table->text('content')->nullable();
             $table->foreignId('profile_id')->index()->constrained('profiles');
             $table->foreignId('category_id')->index()->constrained('categories');
-            $table->unsignedBigInteger('view')->nullable();
+            $table->unsignedBigInteger('views')->nullable();
             $table->boolean('is_commentable')->default(true);
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

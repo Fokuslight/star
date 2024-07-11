@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\Post\PostStoreEvent;
 use App\Http\Resources\Post\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ class PostController extends Controller
     {
         $data = $this->getData();
         $post = Post::create($data);
+        PostStoreEvent::dispatch();
         return $post;
         // Обработка
         // Бизнес логика

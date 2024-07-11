@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Events\Post\PostStoreEvent;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
@@ -31,7 +32,9 @@ class GoCommand extends Command
      */
     public function handle()
     {
-        $post = Post::first();
+        Post::all();
+//        Post::where('id', 10)->delete();
+//        PostStoreEvent::dispatch();
         // attach - просто добавление
         // syncWithoutDetaching
         // detach - просто удаление
@@ -43,10 +46,6 @@ class GoCommand extends Command
 //    2 => 9
 //    3 => 12
 //    4 => 16
-        $tag = Tag::find(9);
-        $post->tags()->updateExistingPivot($tag, [
-            'status' => 2
-        ]);
-        dd($post->tags->count());
+        dd(7777);
     }
 }

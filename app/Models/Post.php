@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+use App\Observers\PostObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
+#[ObservedBy(PostObserver::class)]
 class Post extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     public function profile()
     {
@@ -23,7 +28,6 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
-
 
     public function comments()
     {
